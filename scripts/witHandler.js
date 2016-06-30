@@ -4,8 +4,8 @@ write=nobody
 execute=authenticated 
   **/ 
  
- var witClient = require("./witClient");
-var config = require("./config");
+ var witClient = require("./witClient.js");
+var config = require("./config.js");
 
 /** 
  * Main class to use in order to translate a vocal command sent by the end user

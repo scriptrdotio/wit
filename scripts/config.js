@@ -29,7 +29,7 @@ var serverAccessToken = "JINV7DH5NAIMOALWJTEWTSSSFLSNX6DA";  // example
 var mapping = {
   
   "get_nearest_venue": { // this is the intent name
-    "script": "./test/getNearestVenue", // this is the full path to the script to invoke for the intent
+    "script": "./test/getNearestVenue.js", // this is the full path to the script to invoke for the intent
     "params": { // mapping of the entities to parameters
       "distance": "radius", // the distance entity is mapped to the radius parameter
       "local_search_query": "venue" // the local_search_query entity is mapped to the venue parameter

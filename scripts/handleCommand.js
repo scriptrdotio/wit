@@ -12,7 +12,7 @@ execute=authenticated
  * @module handleCommand
  */
 
-var witHandler = require("./witHandler");
+var witHandler = require("./witHandler.js");
 if (request.files) {
   
   var filesList = request.files.commands;
