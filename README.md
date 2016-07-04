@@ -50,7 +50,7 @@ var mapping = {
 ```
 - From a client application, a REST client or from the scriptr's dashboard, invoke the wit/handleCommand API as follows
 ```
-curl -X POST  -F apsws.time=1432726939153 -F commands=@myVocalCommandFile.mp3 -H 'Authorization: bearer you_scriptr_auth_token' 'https://api.scriptr.io/wit/handleCommand'
+curl -X POST  -F apsws.time=1432726939153 -F commands=@myVocalCommandFile.mp3 -H 'Authorization: bearer you_scriptr_auth_token' 'https://api.scriptr.io/modules/wit/handleCommand.js'
 ```
 That's all.
 ##Try it!
@@ -87,11 +87,11 @@ Create an intent at wit.ai, called "get_nearest_venue". This intent knows how to
 Also use the dummy API script provided in the source code (wit/test/getNearestVenue) that returns the values of the received parameter. 
 Map this script to the intent using the configuration file given as an example in the "How to use" paragraph.
 Create an audio file (mp3) that contains the following vocal instruction: "get nearest gas station in a five hundred meters perimeter" and pass it to the following CURL instruction that points to your scriptr account.
-curl -X POST  -F apsws.time=1432726939153 -F commands=@command.mp3 -H 'Authorization: bearer YOUR_TOKEN' 'https://api.scriptr.io/wit/handleCommand'
+curl -X POST  -F apsws.time=1432726939153 -F commands=@command.mp3 -H 'Authorization: bearer YOUR_TOKEN' 'https://api.scriptr.io/modules/wit/handleCommand.js'
 
 Below is what you should get as output:
 ```
->> curl -X POST  -F apsws.time=1432726939153 -F commands=@command.mp3 -H 'Authorization: bearer YOUR_TOKEN' 'https://api.scriptr.io/wit/handleCommand'
+>> curl -X POST  -F apsws.time=1432726939153 -F commands=@command.mp3 -H 'Authorization: bearer YOUR_TOKEN' 'https://api.scriptr.io/modules/wit/handleCommand.js'
 2015-05-27 11:42:26,446 LOG [modules/wit/handleCommand] instanciating wit client
 2015-05-27 11:42:34,983 LOG [modules/wit/handleCommand] received following response form wit.ai {"status":"200","headers":{"Connection":"keep-alive","Transfer-Encoding":"chunked","Content-Type":"application/json","Date":"Wed, 27 May 2015 11:42:34 GMT","Server":"nginx/1.8.0"},"body":"{\n  \"msg_id\" : \"e5553a76-b11f-33f5-b345-22d5677s897f989f\",\n  \"_text\" : \"find nearest gas station in 500 meter perimeter\",\n  \"outcomes\" : [ {\n    \"_text\" : \"find nearest gas station in 500 meter perimeter\",\n    \"intent\" : \"get_nearest_venue\",\n    \"entities\" : {\n      \"distance\" : [ {\n        \"value\" : 500,\n        \"type\" : \"value\",\n        \"unit\" : \"metre\"\n      } ],\n      \"local_search_query\" : [ {\n        \"suggested\" : true,\n        \"value\" : \"nearest gas station\",\n        \"type\" : \"value\"\n      } ]\n    },\n    \"confidence\" : 0.55\n  } ]\n}","timeout":false}
 2015-05-27 11:42:34,983 LOG [modules/wit/handleCommand] next API invocation : {"script":"./test/getNearestVenue.js","params":{"radius":500,"venue":"nearest gas station"}}
