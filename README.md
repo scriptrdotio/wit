@@ -9,8 +9,11 @@ wit.ai is a company that provides developers with means to map vocal commands to
 The purpose of this handler is to allow you to trigger one of your APIs (scriptr scripts) from a vocal command. The latter is sent by your client app as an audio file (mp3) to the scriptr wit.ai handler, which will invoke wit.ai to identify the corresponding intent, then use the latter to trigger the targeted API. The sole constraints are to provide an "execute()" method in your script that accept a JSON object as a parameter (execute trigger the logic of your API). 
 ##Components
 wit/handleCommand: this is the API to invoke from a client application. The latter needs to pass the audio file containing the vocal command as an attached file ("commands" parameter)
+
 wit/witHandler : this module handles the mapping between the intent that match the vocal command, as returned by wit.ai, and the developer's API
-wit/witClient : this module handles the communication with wiit.ai's APIs
+
+wit/witClient : this module handles the communication with wit.ai's APIs
+
 wit/config: required configuration (wit.ai auth token, intent to script mappings, etc.)
 ##How to use
 - Deploy the aforementioned scripts in your scriptr account, in a folder named "wit" (remove the .js extension of the files)
